@@ -109,7 +109,10 @@ function Analyse
 
         for i = 1:NbTrials
 
-            if TotalTrials{1, 1}(i, 6) > 0.5 % & TotalTrials{1,1}(i,6)<2.9      % Skips trials where answer came after responses window or with impossible RT (negative or before the beginning of the movie)
+            % & TotalTrials{1,1}(i,6)<2.9
+            % Skips trials where answer came after responses window or with impossible RT
+            % (negative or before the beginning of the movie)
+            if TotalTrials{1, 1}(i, 6) > 0.5
 
                 Context = TotalTrials{1, 1}(i, 4); % What block we are in
 
@@ -205,7 +208,8 @@ function Analyse
                     ResponsesCell{TrialType + 1, Context + 1}(RightResp, TotalTrials{1, 1}(i, 2)) = ResponsesCell{TrialType + 1, Context + 1}(RightResp, TotalTrials{1, 1}(i, 2)) + 1;
                 end
 
-                StimByStimRespRecap{1, 2, TrialType + 1}(WhichStim, Resp, TotalTrials{1, 1}(i, 2), Context + 1) = StimByStimRespRecap{1, 2, TrialType + 1}(WhichStim, Resp, TotalTrials{1, 1}(i, 2), Context + 1) + 1;
+                StimByStimRespRecap{1, 2, TrialType + 1}(WhichStim, Resp, TotalTrials{1, 1}(i, 2), Context + 1) = ...
+                    StimByStimRespRecap{1, 2, TrialType + 1}(WhichStim, Resp, TotalTrials{1, 1}(i, 2), Context + 1) + 1;
 
                 if TotalTrials{1, 1}(i, 8) ~= 999
                     ReactionTimesCell{TrialType + 1, RightResp, Context + 1} = [ReactionTimesCell{TrialType + 1, RightResp, Context + 1} RT];
