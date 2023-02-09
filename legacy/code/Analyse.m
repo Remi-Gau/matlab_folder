@@ -1,4 +1,5 @@
 function Analyse
+    % (c) Copyright 2023 Remi Gau
 
     %
 

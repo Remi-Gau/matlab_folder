@@ -1,4 +1,5 @@
 function c = add_numbers(a, b)
+    % (c) Copyright 2023 Remi Gau
 
     if ~isnumeric(a)
         err.message = 'a must a scalar value.';
