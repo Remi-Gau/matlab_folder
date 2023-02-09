@@ -25,13 +25,11 @@ function Analyse
     clear all;
     close all;
 
-    % KbName('UnifyKeyNames');
-
     % Figure counter
     n = 1;
 
     cd Behavioral;
-
+    
     try
 
         ResultsFilesList = dir ('Subject*.mat');
@@ -103,13 +101,8 @@ function Analyse
             ResponsesCell{i} = zeros(2, NbTrialsPerBlock);
         end
 
-        % PriorResponse=zeros(2,8,2);
-        %
-        % TimeSinceLastCell=cell(2,2);
-
         for i = 1:NbTrials
 
-            % & TotalTrials{1,1}(i,6)<2.9
             % Skips trials where answer came after responses window or with impossible RT
             % (negative or before the beginning of the movie)
             if TotalTrials{1, 1}(i, 6) > 0.5
@@ -139,32 +132,6 @@ function Analyse
                 else
                     RightResp = 2;
                 end
-
-                %       if TrialType==2
-                %
-                %           From = TotalTrials{1,1}(i-1,5);
-                %           GoingBack = 1;
-                %
-                %           while TotalTrials{1,1}(i-GoingBack,5)==From
-                %               GoingBack=GoingBack+1;
-                %               if GoingBack==i || GoingBack>11
-                %                   break
-                %               end
-                %           end
-                %
-                %           PriorResponse(RightResp,GoingBack-1,Context+1)=PriorResponse(RightResp,GoingBack-1,Context+1)+1;
-                %
-                %
-                %           TimeSinceLast = TotalTrials{1,1}(i,3)-TotalTrials{1,1}(i-1,3);
-                %
-                %           if From==2
-                %               From=TotalTrials{1,1}(i-2,5);
-                %               TimeSinceLast = TotalTrials{1,1}(i,3)-TotalTrials{1,1}(i-2,3);
-                %           end
-                %
-                %           TimeSinceLastCell{From+1,RightResp}= [TimeSinceLastCell{From+1,RightResp} TimeSinceLast];
-                %
-                %       end
 
                 RT = TotalTrials{1, 1}(i, 6);
 
@@ -314,27 +281,11 @@ function Analyse
         set(gca, 'tickdir', 'out', 'xtick', 1:max(NbTrialsPerBlock), 'xticklabel', 1:max(NbTrialsPerBlock), 'ticklength', [0.005 0], 'fontsize', 13, 'ylim', [0 1]);
         legend(['In a CON Block'; 'In a INC Block'], 'Location', 'SouthEast');
 
-        % figure(n)
-        % n=n+1;
-        % subplot(211)
-        % hist(TimeSinceLastCell{1,1})
-        % subplot(212)
-        % hist(TimeSinceLastCell{1,2})
-        %
-        % figure(n)
-        % n=n+1;
-        % subplot(211)
-        % hist(TimeSinceLastCell{2,1})
-        % subplot(212)
-        % hist(TimeSinceLastCell{2,2})
-
         fprintf('\n\n');
         disp('REACTION TIMES');
 
         fprintf('\n\n');
         ReactionTimesCell;
-
-        % ReactionTimesCell{TrialType+1,RightResp, Context+1}
 
         fprintf('\n\n');
         fprintf('CONGRUENT \n\n');
