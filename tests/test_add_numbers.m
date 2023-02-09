@@ -7,54 +7,54 @@ function test_suite = test_add_numbers %#ok<STOUT>
 end
 
 function test_smoke()
-a = 1;
-b = 3;
-add_numbers(a,b);
+    a = 1;
+    b = 3;
+    add_numbers(a, b);
 end
 
 function test_unit()
 
-% set up
-a = 1;
-b = 3;
+    % set up
+    a = 1;
+    b = 3;
 
-c = add_numbers(a,b);
+    c = add_numbers(a, b);
 
-% test
-expected_output = 4;
+    % test
+    expected_output = 4;
 
-assert(numel(c) == 1)
-assertEqual(c, expected_output);
+    assert(numel(c) == 1);
+    assertEqual(c, expected_output);
 
-% tear down
+    % tear down
 
 end
 
 function test_unit_2()
 
-% set up
-a = -1;
-b = 3;
+    % set up
+    a = -1;
+    b = 3;
 
-c = add_numbers(a,b);
+    c = add_numbers(a, b);
 
-% test
-expected_output = 2;
+    % test
+    expected_output = 2;
 
-assert(numel(c) == 1)
-assertEqual(c, expected_output);
+    assert(numel(c) == 1);
+    assertEqual(c, expected_output);
 
-% tear down
+    % tear down
 
 end
 
 % FIXME
 function test_unit_3()
 
-% set up
-a = 'a';
-b = 3;
+    % set up
+    a = 'a';
+    b = 3;
 
-assertExceptionThrown( @()add_numbers(a,b), 'add_numbers:ScalarExpected');
+    assertExceptionThrown(@()add_numbers(a, b), 'add_numbers:ScalarExpected');
 
 end

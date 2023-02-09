@@ -1,13 +1,12 @@
-function handle = plot_line(x,y)
+function handle = plot_line(x, y)
 
-handle = figure('name', 'line');
+    handle = figure('name', 'line');
 
-plot(x, y)
+    plot(x, y);
 
-xlabel('x values')
-ylabel('y values')
+    xlabel('x values');
+    ylabel('y values');
 
-print(gcf, 'my_figure.png', '-dpng')
+    print(gcf, 'my_figure.png', '-dpng');
 
 end
-
