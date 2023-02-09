@@ -364,7 +364,7 @@ function Analyse
 
             for i = 1:(n - 1)
                 figure(i);
-                print(gcf, strcat('Fig', num2str(i), '.eps'), '-depsc'); 
+                print(gcf, strcat('Fig', num2str(i), '.eps'), '-depsc'); % Print figures in vector format
             end
 
         else
@@ -372,7 +372,7 @@ function Analyse
             % Find a way to loop this as well !!!
             for i = 1:(n - 1)
                 figure(i);
-                print(gcf, strcat('Fig', num2str(i), '.svg'), '-dsvg'); 
+                print(gcf, strcat('Fig', num2str(i), '.svg'), '-dsvg'); % Print figures in vector format
                 print(gcf, strcat('Fig', num2str(i), '.pdf'), '-dpdf'); 
             end
         end
