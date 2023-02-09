@@ -29,7 +29,7 @@ function Analyse
 
     cd Behavioral;
     
-    try
+
 
         ResultsFilesList = dir ('Subject*.mat');
         SizeFilesList = size(ResultsFilesList, 1);
@@ -104,7 +104,11 @@ function Analyse
 
             % Skips trials where answer came after responses window or with impossible RT
             % (negative or before the beginning of the movie)
-            if TotalTrials{1, 1}(i, 6) > 0.5
+            reaction_time_sec = TotalTrials{1, 1}(i, 6);
+            
+            if reaction_time_sec <= 0.5
+                continue
+            end
 
                 Context = TotalTrials{1, 1}(i, 4); % What block we are in
 
@@ -194,7 +198,7 @@ function Analyse
                 end
 
             end
-        end
+
 
         clear TrialType Context RT RightResp i WhichStim Resp NoiseRange;
 
@@ -384,10 +388,6 @@ function Analyse
 
         cd ..;
 
-    catch
-        cd ..;
-        lasterror;
-    end
 
 end    
     
