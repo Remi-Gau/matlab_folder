@@ -17,8 +17,8 @@ function test_Analyse
 
     % tests
     cd(subject_folder);
-    cfg.reaction_time_threshold = 0.5;
-    Analyse(cfg);
+    cfg.reaction_time_threshold = 
+    Analyse();
 
     % check created files
     assert(exist(output_figure, 'file') == 2);

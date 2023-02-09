@@ -1,4 +1,4 @@
-function Analyse
+function Analyse(cfg)
     % (c) Copyright 2023 Remi Gau
 
     %
@@ -20,10 +20,8 @@ function Analyse
     % {3,1} contains the level of noise used for this stimuli
     % {4,1} contains the absolute path of the corresponding movie to be played
     % {5,1} contains the absolute path of the corresponding sound to be played
-
-    clc;
-    clear all;
-    close all;
+    
+    REACTION_TIME_THRESHOLD = cfg.reaction_time_threshold;
 
     figure_counter = 1;
 
@@ -54,20 +52,8 @@ function Analyse
             NoiseRange = zeros(1, NbMcMovies);
         end
 
-        % --------------------------------------------- FIGURE --------------------------------------------------------
-        % A first quick figure to have look at the different reactions times
-        figure(figure_counter);
-        figure_counter = figure_counter + 1;
-
-        scatter(15 * TotalTrials{1, 1}(:, 5) + TotalTrials{1, 1}(:, 2), TotalTrials{1, 1}(:, 6));
-        xlabel 'Trial Number';
-        ylabel 'Response Time';
-        set(gca, 'tickdir', 'out', 'xtick', [1 16 31], 'xticklabel', 'Congruent|Incongruent|McGurk', 'ticklength', [0.002 0], 'fontsize', 13);
-        axis 'tight';
-        set(gca, 'ylim', [-.5 10]);
-
-        % ------------------------------------------------------------------------------------------------------------------
-
+        figure_counter = reaction_time_figure(figure_counter, TotalTrials);
+        
         StimByStimRespRecap = cell(1, 2, 3);
         McGurkStimByStimRespRecap = cell(NbMcMovies, 2);
 
@@ -106,7 +92,7 @@ function Analyse
             % (negative or before the beginning of the movie)
             reaction_time_sec = TotalTrials{1, 1}(i, 6);
             
-            if reaction_time_sec <= 0.5
+            if reaction_time_sec <= REACTION_TIME_THRESHOLD
                 continue
             end
 
@@ -400,4 +386,23 @@ end
           nb_movies, ...
           1)), ...
           StimByStimRespRecap{1, 1, TrialType + 1})); 
+    end
+    
+    
+    function figure_counter = reaction_time_figure(figure_counter, TotalTrials)
+        figure(figure_counter);
+        figure_counter = figure_counter + 1;
+
+        scatter(15 * TotalTrials{1, 1}(:, 5) + ...
+            TotalTrials{1, 1}(:, 2), TotalTrials{1, 1}(:, 6));
+        xlabel 'Trial Number';
+        ylabel 'Response Time';
+        set(gca, ...
+            'tickdir', 'out', ...
+            'xtick', [1 16 31], ...
+            'xticklabel', 'Congruent|Incongruent|McGurk', ...
+            'ticklength', [0.002 0], ...
+            'fontsize', 13);
+        axis 'tight';
+        set(gca, 'ylim', [-.5 10]);
     end
