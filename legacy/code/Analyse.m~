@@ -28,7 +28,7 @@ function Analyse
     figure_counter = 1;
 
     cd Behavioral;
-    
+
     try
 
         ResultsFilesList = dir ('Subject*.mat');
@@ -363,7 +363,7 @@ function Analyse
 
             for i = 1:(figure_counter - 1)
                 figure(i);
-                print(gcf, strcat('Fig', num2str(i), '.eps'), '-depsc'); 
+                print(gcf, strcat('Fig', num2str(i), '.eps'), '-depsc');
             end
 
         else
@@ -371,8 +371,8 @@ function Analyse
             % Find a way to loop this as well !!!
             for i = 1:(figure_counter - 1)
                 figure(i);
-                print(gcf, strcat('Fig', num2str(i), '.svg'), '-dsvg'); 
-                print(gcf, strcat('Fig', num2str(i), '.pdf'), '-dpdf'); 
+                print(gcf, strcat('Fig', num2str(i), '.svg'), '-dsvg');
+                print(gcf, strcat('Fig', num2str(i), '.pdf'), '-dpdf');
             end
         end
 
@@ -394,5 +394,5 @@ function value = IsOctave()
 end
 
     function find_which_stim(nb_movies, TotalTrials)
-      value  = find(strcmp (cellstr(repmat(TotalTrials{2, 1}(i, :), NbMcMovies, 1)), StimByStimRespRecap{1, 1, TrialType + 1})); 
+      value  = find(strcmp (cellstr(repmat(TotalTrials{2, 1}(i, :), NbMcMovies, 1)), StimByStimRespRecap{1, 1, TrialType + 1}));
     end
