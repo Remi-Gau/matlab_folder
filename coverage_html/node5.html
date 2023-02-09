@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><title>/home/remi/github/matlab_folder/test_plot_line.m</title><STYLE TYPE="text/css"><!--TD{font-family: "Courier New", Courier, monospace; font-size: 10pt;}---></STYLE></head><body><p>(Back to <a href="index.html">index</a>)</p><h1>/home/remi/github/matlab_folder/test_plot_line.m</h1><p style="font-family:'Courier New'"><table>
+<tr><th>Line</th><th>Code</th></tr>
+<tr><td>1</td><td bgcolor="#FFFFFF">function&nbsp;test_plot_line()</td></tr>
+<tr><td>2</td><td bgcolor="#FFFFFF"></td></tr>
+<tr><td>3</td><td bgcolor="#FFFFFF">%&nbsp;set&nbsp;up</td></tr>
+<tr><td>4</td><td bgcolor="#FF0000">if&nbsp;exist('my_figure.png',&nbsp;'file')</td></tr>
+<tr><td>5</td><td bgcolor="#FF0000">delete('my_figure.png')</td></tr>
+<tr><td>6</td><td bgcolor="#FFFFFF">end</td></tr>
+<tr><td>7</td><td bgcolor="#FF0000">close&nbsp;all</td></tr>
+<tr><td>8</td><td bgcolor="#FFFFFF"></td></tr>
+<tr><td>9</td><td bgcolor="#FF0000">x&nbsp;=&nbsp;1:100;</td></tr>
+<tr><td>10</td><td bgcolor="#FF0000">y&nbsp;=&nbsp;3&nbsp;*&nbsp;x&nbsp;+&nbsp;5&nbsp;+&nbsp;randn(1,100)&nbsp;*&nbsp;10;</td></tr>
+<tr><td>11</td><td bgcolor="#FFFFFF"></td></tr>
+<tr><td>12</td><td bgcolor="#FF0000">handle&nbsp;=&nbsp;plot_line(x,y);</td></tr>
+<tr><td>13</td><td bgcolor="#FFFFFF"></td></tr>
+<tr><td>14</td><td bgcolor="#FF0000">assert(strcmp(handle.Name,&nbsp;'line'))</td></tr>
+<tr><td>15</td><td bgcolor="#FF0000">assert(exist('my_figure.png',&nbsp;'file')&nbsp;==&nbsp;2)</td></tr>
+<tr><td>16</td><td bgcolor="#FFFFFF"></td></tr>
+<tr><td>17</td><td bgcolor="#FFFFFF">%&nbsp;teardown</td></tr>
+<tr><td>18</td><td bgcolor="#FF0000">delete('my_figure.png')</td></tr>
+<tr><td>19</td><td bgcolor="#FF0000">close&nbsp;all</td></tr>
+<tr><td>20</td><td bgcolor="#FFFFFF"></td></tr>
+<tr><td>21</td><td bgcolor="#FFFFFF">end</td></tr>
+<tr><td>22</td><td bgcolor="#FFFFFF"></td></tr>
+<tr><td>23</td><td bgcolor="#FFFFFF"></td></tr>
+</table></p></body></html>
